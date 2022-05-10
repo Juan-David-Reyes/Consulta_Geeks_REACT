@@ -1,6 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import './Header.scss';
 import logoConsultaGeeks from '../assets/logo_consulta_geeks.svg';
+import QuienesSomos from '../pages/QuienesSomos';
+import Servicios from '../pages/Servicios';
+import NuestrosGeeks from '../pages/NuestrosGeeks'
 
 function Header() {
   return (
@@ -8,38 +12,45 @@ function Header() {
         <header>
             <div className="center">
                 <div className="header">
-                    <h1>
-                        <a href="index.html">
-                            <img src={logoConsultaGeeks} width="135" height="48" alt=""/>
-                        </a>
-                    </h1>
-                    <nav className="navbar">
-                        <ul>
-                            <li>
-                                <a href="sobre_nosotros.html">¿Quiénes Somos?</a>
-                            </li>
-                            <li>
-                                <a href="">Servicios</a>
-                            </li>
-                            <li>
-                                <a href="nuestros_geeks.html">Nuestros Geeks</a>
-                            </li>
-                            <li>
-                                <a href="blog.html">Blog</a>
-                            </li>
-                            <div className="navbar_buttons">
+                    <Router>
+                        <h1>
+                            <Link to="/">
+                                <img src={logoConsultaGeeks} width="135" height="48" alt=""/>
+                            </Link>
+                        </h1>
+                        <nav className="navbar">
+                            <ul>
                                 <li>
-                                    <a className="btn_outline" href="registro.html">Regístrate</a>
+                                    <Link to="/quienes_somos">¿Quiénes Somos?</Link>
                                 </li>
                                 <li>
-                                    <a className="btn_fill" href="iniciar_sesion.html">Iniciar Sesión</a>
+                                    <Link to="/servicios">Servicios</Link>
                                 </li>
-                            </div>
-                        </ul>
-                    </nav>
-                    <a className="button_nav">
-                        <i className="fas fa-bars"></i>
-                    </a>
+                                <li>
+                                    <Link to="/nuestros_geeks">Nuestros Geeks</Link>
+                                </li>
+                                <li>
+                                    <Link to="/blog">Blog</Link>
+                                </li>
+                                <div className="navbar_buttons">
+                                    <li>
+                                        <Link className="btn_outline" to="/registrate">Regístrate</Link>
+                                    </li>
+                                    <li>
+                                        <Link className="btn_fill" to="/iniciar_sesion">Iniciar Sesión</Link>
+                                    </li>
+                                </div>
+                            </ul>
+                        </nav>
+                        <Routes>
+                            <Route path="/quienes_somos" element={<QuienesSomos/>} />
+                            <Route path="/servicios" element={<Servicios/>} />
+                            <Route path="/nuestros_geeks" element={<NuestrosGeeks/>} />
+                        </Routes>
+                        <div className="button_nav">
+                            <i className="fas fa-bars"></i>
+                        </div>
+                    </Router>
                 </div>
             </div>
         </header>
