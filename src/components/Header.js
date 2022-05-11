@@ -1,61 +1,50 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.scss';
 import logoConsultaGeeks from '../assets/logo_consulta_geeks.svg';
-import QuienesSomos from '../pages/QuienesSomos';
-import Servicios from '../pages/Servicios';
-import NuestrosGeeks from '../pages/NuestrosGeeks'
 
-function Header() {
+
+export default function Header() {
   return (
     <>
         <header>
             <div className="center">
                 <div className="header">
-                    <Router>
+                        
                         <h1>
-                            <Link to="/">
-                                <img src={logoConsultaGeeks} width="135" height="48" alt=""/>
-                            </Link>
+                            <NavLink to="/"><img src={logoConsultaGeeks} width="135" height="48" alt=""/></NavLink>
                         </h1>
                         <nav className="navbar">
                             <ul>
                                 <li>
-                                    <Link to="/quienes_somos">¿Quiénes Somos?</Link>
+                                    <NavLink to="/quienes_somos">¿Quiénes Somos?</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/servicios">Servicios</Link>
+                                    <NavLink to="/servicios">Servicios</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/nuestros_geeks">Nuestros Geeks</Link>
+                                    <NavLink to="/nuestros_geeks">Nuestros Geeks</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/blog">Blog</Link>
+                                    <NavLink to="/blog">Blog</NavLink>
                                 </li>
                                 <div className="navbar_buttons">
                                     <li>
-                                        <Link className="btn_outline" to="/registrate">Regístrate</Link>
+                                        <NavLink className="btn_outline" to="/registrate">Regístrate</NavLink>
                                     </li>
                                     <li>
-                                        <Link className="btn_fill" to="/iniciar_sesion">Iniciar Sesión</Link>
+                                        <NavLink className="btn_fill" to="/iniciar_sesion">Iniciar Sesión</NavLink>
                                     </li>
                                 </div>
                             </ul>
                         </nav>
-                        <Routes>
-                            <Route path="/quienes_somos" element={<QuienesSomos/>} />
-                            <Route path="/servicios" element={<Servicios/>} />
-                            <Route path="/nuestros_geeks" element={<NuestrosGeeks/>} />
-                        </Routes>
+
                         <div className="button_nav">
                             <i className="fas fa-bars"></i>
                         </div>
-                    </Router>
+
                 </div>
             </div>
         </header>
     </>
   )
 }
-
-export default Header
