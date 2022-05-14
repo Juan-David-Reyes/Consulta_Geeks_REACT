@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.scss';
+// import './Footer.scss';
 import logoConsultaGeeksDark from '../assets/logo_consulta_geeks_dark.svg'
 
 function Footer() {

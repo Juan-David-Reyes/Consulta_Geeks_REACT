@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import './Header.scss';
+// import './Header.scss';
 import logoConsultaGeeks from '../assets/logo_consulta_geeks.svg';
 
 
